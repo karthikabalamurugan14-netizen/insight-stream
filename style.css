@@ -1,0 +1,207 @@
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #222;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+h1, h2 {
+  margin-bottom: 0.5em;
+}
+.page {
+  margin: 2em 0;
+  padding: 1em;
+}
+
+/* ===== Header ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #003366;
+  color: #fff;
+  padding: 1em;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+header .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+}
+header nav ul li a {
+  padding: 0.5em 0.8em;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+header nav ul li a.active,
+header nav ul li a:hover {
+  background: #0055aa;
+  color: #fff;
+}
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  text-align: center;
+  padding: 3em 1em;
+  background: linear-gradient(135deg, #0055aa, #0099cc);
+  color: #fff;
+  border-radius: 10px;
+}
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* ===== Articles ===== */
+.articles {
+  display: grid;
+  gap: 1.2em;
+  margin-top: 1em;
+}
+.article-card {
+  background: #fff;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+.article-card:hover {
+  transform: scale(1.02);
+}
+.article-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 0.5em;
+}
+
+/* ===== Categories ===== */
+.categories-grid {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  margin: 1em 0;
+}
+.categories-grid button {
+  background: #0055aa;
+  color: #fff;
+  border: none;
+  padding: 0.6em 1.2em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.categories-grid button:hover {
+  background: #0077dd;
+}
+
+/* ===== Subscribe ===== */
+#subscribeForm {
+  display: flex;
+  gap: 1em;
+  max-width: 450px;
+  margin: auto;
+}
+#subscribeForm input, 
+#subscribeForm button {
+  padding: 0.6em;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+#subscribeForm button {
+  background: #0055aa;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+#subscribeForm button:hover {
+  background: #0077dd;
+}
+#subscribeMessage {
+  margin-top: 1em;
+  text-align: center;
+  font-weight: bold;
+  color: green;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 1em;
+  background: #003366;
+  color: #fff;
+  margin-top: 2em;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  /* Header */
+  header nav ul {
+    display: none;
+    flex-direction: column;
+    background: #003366;
+    padding: 1em;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    border-radius: 0 0 10px 10px;
+  }
+  header nav ul.show {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Articles grid → single column */
+  .articles {
+    grid-template-columns: 1fr;
+  }
+
+  /* Subscribe form stack */
+  #subscribeForm {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Articles grid → two columns */
+  .articles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Articles grid → three columns */
+  .articles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
